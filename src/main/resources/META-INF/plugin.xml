@@ -29,4 +29,13 @@
     <extensions defaultExtensionNs="com.intellij">
 
     </extensions>
+    <actions>
+        <action id="HumpUnderlineAction" class="com.itao.action.HumpUnderlineAction" text="HumpUnderlineAction"
+                description="驼峰下划线互相转换">
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt B"/>
+        </action>
+        <action id="CapitalAction" class="com.itao.action.CapitalAction" text="CapitalAction" description="首字母大小写转换">
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt A"/>
+        </action>
+    </actions>
 </idea-plugin>
