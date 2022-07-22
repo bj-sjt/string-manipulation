@@ -10,6 +10,9 @@ import com.intellij.openapi.editor.SelectionModel;
 import com.intellij.openapi.project.Project;
 import com.itao.util.StringUtil;
 
+/**
+ * 首字母大小写转换
+ */
 public class CapitalAction extends AnAction {
 
     private int end;

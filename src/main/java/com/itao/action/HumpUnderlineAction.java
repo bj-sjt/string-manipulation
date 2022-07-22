@@ -10,6 +10,9 @@ import com.intellij.openapi.editor.SelectionModel;
 import com.intellij.openapi.project.Project;
 import com.itao.util.StringUtil;
 
+/**
+ * 下划线与驼峰转换
+ */
 public class HumpUnderlineAction extends AnAction {
 
     @Override
