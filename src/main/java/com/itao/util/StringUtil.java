@@ -9,9 +9,6 @@ public class StringUtil {
 
     /**
      * 驼峰格式字符串转换为下划线格式字符串
-     *
-     * @param param 驼峰格式字符串
-     * @return 下划线格式字符串
      */
     public static String camelToUnderline(String param) {
         if (param == null || "".equals(param.trim())) {
@@ -33,9 +30,6 @@ public class StringUtil {
 
     /**
      * 下划线格式字符串转换为驼峰格式字符串
-     *
-     * @param param 下划线格式字符串
-     * @return 驼峰格式字符串
      */
     public static String underlineToCamel(String param) {
         if (param == null || "".equals(param.trim())) {
@@ -58,9 +52,6 @@ public class StringUtil {
 
     /**
      * 判断一个字符串是否是 null 或 "" 或 "  "
-     *
-     * @param text 指定的字符串
-     * @return true or false
      */
     public static boolean isNotBlank(String text) {
         return text != null && "".equals(text.trim());
@@ -68,9 +59,6 @@ public class StringUtil {
 
     /**
      * 判断一个字符串是否是 null 或 "" 或 "  "
-     *
-     * @param text 指定的字符串
-     * @return true or false
      */
     public static boolean isBlank(String text) {
         return text == null || "".equals(text.trim());
@@ -86,9 +74,9 @@ public class StringUtil {
         }
         Pattern pattern = Pattern.compile("[A-Z]");
         Matcher matcher = pattern.matcher(source);
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         while (matcher.find()) {
-            matcher.appendReplacement(sb, matcher.group(0).toLowerCase());
+            matcher.appendReplacement(sb, "_" + matcher.group(0).toLowerCase());
         }
         matcher.appendTail(sb);
         return sb.toString();
@@ -102,11 +90,47 @@ public class StringUtil {
         if (isBlank(source)) {
             return "";
         }
-        Pattern pattern = Pattern.compile("_[A-Z]");
+        Pattern pattern = Pattern.compile("_[a-z]");
         Matcher matcher = pattern.matcher(source);
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         while (matcher.find()) {
-            matcher.appendReplacement(sb, matcher.group(0).toLowerCase().replace("_", ""));
+            matcher.appendReplacement(sb, matcher.group(0).toUpperCase().replace("_", ""));
+        }
+        matcher.appendTail(sb);
+        return sb.toString();
+    }
+
+    /**
+     * 驼峰转横线-
+     */
+    public static String hump2KebabCase(String source) {
+
+        if (isBlank(source)) {
+            return "";
+        }
+        Pattern pattern = Pattern.compile("[A-Z]");
+        Matcher matcher = pattern.matcher(source);
+        StringBuilder sb = new StringBuilder();
+        while (matcher.find()) {
+            matcher.appendReplacement(sb, "-" + matcher.group(0).toLowerCase());
+        }
+        matcher.appendTail(sb);
+        return sb.toString();
+    }
+
+    /**
+     * -横线转驼峰
+     */
+    public static String kebabCase2Hump(String source) {
+
+        if (isBlank(source)) {
+            return "";
+        }
+        Pattern pattern = Pattern.compile("-[a-z]");
+        Matcher matcher = pattern.matcher(source);
+        StringBuilder sb = new StringBuilder();
+        while (matcher.find()) {
+            matcher.appendReplacement(sb, matcher.group(0).toUpperCase().replace("-", ""));
         }
         matcher.appendTail(sb);
         return sb.toString();
@@ -135,5 +159,10 @@ public class StringUtil {
         String capital = source.substring(0, 1);
         String other = source.substring(1);
         return capital.toLowerCase() + other;
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(hump2KebabCase("Str"));
     }
 }

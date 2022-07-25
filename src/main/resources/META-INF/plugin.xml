@@ -16,6 +16,8 @@
     <description><![CDATA[
     snake_case <--> camelCase
     key map ALT + U
+    kebab-case <--> camelCase
+    key map ALT + K
     Capitalize <--> capitalize
     key map CTRL + ALT + A
   ]]></description>
@@ -30,12 +32,29 @@
 
     </extensions>
     <actions>
-        <action id="HumpUnderlineAction" class="com.itao.action.HumpUnderlineAction" text="HumpUnderlineAction"
-                description="驼峰下划线互相转换">
-            <keyboard-shortcut keymap="$default" first-keystroke="alt U"/>
-        </action>
-        <action id="CapitalAction" class="com.itao.action.CapitalAction" text="CapitalAction" description="首字母大小写转换">
-            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt A"/>
-        </action>
+        <group
+                id="org.intellij.sdk.action.GroupedActions"
+                text="String Manipulation"
+                popup="true">
+            <add-to-group
+                    group-id="EditorPopupMenu"/>
+
+            <action id="UnderlineAction" class="com.itao.action.UnderlineAction" text="UnderlineAction"
+                    description="U下划线驼峰互相转换">
+                <keyboard-shortcut keymap="$default" first-keystroke="alt U"/>
+            </action>
+
+            <action id="KebabCaseAction" class="com.itao.action.KebabCaseAction" text="KebabCaseAction"
+                    description="K横线驼峰互相转换">
+                <keyboard-shortcut keymap="$default" first-keystroke="alt K"/>
+            </action>
+
+            <action id="CapitalAction" class="com.itao.action.CapitalAction" text="CapitalAction"
+                    description="C首字母大小写转换">
+                <keyboard-shortcut keymap="$default" first-keystroke="alt C"/>
+            </action>
+
+
+        </group>
     </actions>
 </idea-plugin>

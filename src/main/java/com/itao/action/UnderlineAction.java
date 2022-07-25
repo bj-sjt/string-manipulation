@@ -13,7 +13,7 @@ import com.itao.util.StringUtil;
 /**
  * 下划线与驼峰转换
  */
-public class HumpUnderlineAction extends AnAction {
+public class UnderlineAction extends AnAction {
 
     @Override
     public void actionPerformed(AnActionEvent e) {
@@ -33,15 +33,16 @@ public class HumpUnderlineAction extends AnAction {
             WriteCommandAction
                     .runWriteCommandAction(
                             project,
-                            () -> document.replaceString(start, end, StringUtil.underlineToCamel(selectedText))
+                            () -> document.replaceString(start, end, StringUtil.underline2Hump(selectedText))
                     );
         } else {
             WriteCommandAction
                     .runWriteCommandAction(
                             project,
-                            () -> document.replaceString(start, end, StringUtil.camelToUnderline(selectedText))
+                            () -> document.replaceString(start, end, StringUtil.hump2Underline(selectedText))
                     );
         }
-
     }
+
+
 }
