@@ -8,18 +8,17 @@
     <name>String-Manipulation</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="476004058@qq.com" url="https://www.baidu.com">baidu</vendor>
+    <vendor email="476004058@qq.com" url="https://www.baidu.com">shangjiangtao</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-    snake_case <--> camelCase
-    key map ALT + U
-    kebab-case <--> camelCase
-    key map ALT + K
-    Capitalize <--> capitalize
-    key map CTRL + ALT + A
+    <ul>
+    <li>驼峰下划线( _ )互相转换  ALT + U</li>
+    <li>驼峰横杠( - )互相转换  ALT + K</li>
+    <li>首字母大小写转换  ALT + A</li>
+    </lu>
   ]]></description>
 
     <!-- Product and plugin compatibility requirements.
@@ -53,8 +52,6 @@
                     description="C首字母大小写转换">
                 <keyboard-shortcut keymap="$default" first-keystroke="alt C"/>
             </action>
-
-
         </group>
     </actions>
 </idea-plugin>
