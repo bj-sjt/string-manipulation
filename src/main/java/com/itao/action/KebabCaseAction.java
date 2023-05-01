@@ -12,7 +12,7 @@ import com.itao.util.StringUtil;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * ���ת�շ�
+ * 短横线与驼峰转换
  */
 public class KebabCaseAction extends AnAction {
     @Override
